@@ -1,13 +1,12 @@
 diff --git a/openff/utilities/__init__.py b/openff/utilities/__init__.py
-index b444786..0eb7a7d 100644
+index ce7c288..503e368 100644
 --- a/openff/utilities/__init__.py
 +++ b/openff/utilities/__init__.py
-@@ -12,7 +12,6 @@ from openff.utilities.utilities import (
- )
- 
+@@ -15,7 +15,6 @@ from openff.utilities.utilities import (
  __all__ = (
+     "MissingOptionalDependencyError",
+     "get_data_file_path",
 -    "get_versions",
-     "get_ambertools_version",
      "has_executable",
      "has_package",
-
+     "requires_oe_module",

@@ -1,13 +1,15 @@
+{% set org = "openforcefield" %}
 {% set name = "openff-utilities" %}
-{% set version = "0.1.13" %}
+{% set version = "0.1.15" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/openforcefield/openff-utilities/archive/v{{ version }}.tar.gz
-  sha256: 0b75fe2c99c9bf674a1f33360f018142123eb2930400dfe72f1446588ac0a719
+  git_url: https://github.com/{{ org }}/{{ name }}.git
+  git_rev: v{{ version }}
+  git_depth: -1
   patches:
     - patches/version-star-import.patch
 
