@@ -25,7 +25,6 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - importlib_resources
 
 test:
   requires:
