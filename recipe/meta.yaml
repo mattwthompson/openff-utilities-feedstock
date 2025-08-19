@@ -1,6 +1,6 @@
 {% set org = "openforcefield" %}
 {% set name = "openff-utilities" %}
-{% set version = "0.1.15" %}
+{% set version = "0.1.16" %}
 
 package:
   name: {{ name|lower }}
@@ -10,12 +10,10 @@ source:
   git_url: https://github.com/{{ org }}/{{ name }}.git
   git_rev: v{{ version }}
   git_depth: -1
-  patches:
-    - patches/version-star-import.patch
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -32,7 +30,8 @@ test:
   imports:
     - openff.utilities
   commands:
-    - python -c "from openff.utilities import *"
+    - python -c "from openff.utilities import __version__; print(f'{__version__=}')"
+    - python -c "from openff.utilities import *; print(f'{get_ambertools_version()=}')"
 
 about:
   home: https://openforcefield.org/
