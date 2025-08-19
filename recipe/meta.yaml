@@ -30,7 +30,7 @@ test:
   imports:
     - openff.utilities
   commands:
-    - python -c "from openff.utilities import __version__; print(f'{__version__=}')"
+    - python -c "from openff.utilities import __version__; print(f'{__version__=}'); assert __version__ != '0.0.0'"
     - python -c "from openff.utilities import *; print(f'{get_ambertools_version()=}')"
 
 about:
