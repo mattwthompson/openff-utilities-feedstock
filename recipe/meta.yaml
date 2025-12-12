@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,16 +21,20 @@ requirements:
     - python {{ python_min }}
     - pip
     - setuptools
+    - versioningit
   run:
     - python >={{ python_min }}
 
 test:
   requires:
     - python {{ python_min }}
+    - packaging
   imports:
     - openff.utilities
+  files:
+    - test_package.py
   commands:
-    - python -c "from openff.utilities import *; print(f'{get_ambertools_version()=}')"
+    - python test_package.py
 
 about:
   home: https://openforcefield.org/
