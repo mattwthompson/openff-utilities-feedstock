@@ -29,8 +29,10 @@ test:
     - python {{ python_min }}
   imports:
     - openff.utilities
+  files:
+    - test_package.py
   commands:
-    - python -c "from openff.utilities import *; print(f'{get_ambertools_version()=}')"
+    - python test_package.py
 
 about:
   home: https://openforcefield.org/
