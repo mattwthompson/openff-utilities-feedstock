@@ -1,4 +1,4 @@
-from openff.utilities import __version__
+from openff.utilities import __version__, get_ambertools_version
 
 from packaging.version import Version
 
