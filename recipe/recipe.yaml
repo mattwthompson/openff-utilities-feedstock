@@ -15,9 +15,10 @@ source:
   depth: -1
 
 build:
-  number: 1
+  number: 2
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  script:
+    - python -m pip install . -vv
 
 requirements:
   host:
