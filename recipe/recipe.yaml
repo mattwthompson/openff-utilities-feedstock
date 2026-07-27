@@ -1,0 +1,58 @@
+schema_version: 1
+
+context:
+  org: openforcefield
+  name: openff-utilities
+  version: "0.1.16"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  git: https://github.com/${{ org }}/${{ name }}.git
+  rev: v${{ version }}
+  depth: -1
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}
+    - pip
+    - setuptools
+    - versioningit
+  run:
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - openff.utilities
+      pip_check: false
+      python_version: ${{ python_min }}
+  - files:
+      recipe:
+        - test_package.py
+    requirements:
+      run:
+        - python ${{ python_min }}
+        - packaging
+    script:
+      - python test_package.py
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: A collection of miscellaneous utility functions used by experimental OpenFF packages
+  homepage: https://openforcefield.org/
+  repository: https://github.com/openforcefield/openff-utilities
+
+extra:
+  recipe-maintainers:
+    - mattwthompson
+    - j-wags
+
