@@ -42,7 +42,7 @@ tests:
         - python ${{ python_min }}.*
         - packaging
         - ambertools >=24
-        - micromamba
+        - mamba
     files:
       recipe:
         - test_package.py
