@@ -31,7 +31,6 @@ tests:
   - python:
       imports:
         - openff.utilities
-      pip_check: false
       python_version:
         - ${{ python_min }}.*
         - "*"
@@ -42,7 +41,7 @@ tests:
         - python ${{ python_min }}.*
         - packaging
         - ambertools >=24
-        - mamba
+        - micromamba  # trying to test get_ambertools_version, but doesn't work _in_ feedstock for unknown reasons
     files:
       recipe:
         - test_package.py
