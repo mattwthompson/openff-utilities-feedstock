@@ -3,19 +3,18 @@ schema_version: 1
 context:
   org: openforcefield
   name: openff-utilities
-  version: "0.1.16"
+  version: "0.1.17"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  git: https://github.com/${{ org }}/${{ name }}.git
-  rev: v${{ version }}
-  depth: -1
+  url: https://github.com/{{ org }}/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 28b1fac10a285f65ed38213c8bf00be76542a0bcb23240eee2dbe5d27497b3f3
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script:
     - python -m pip install . -vv
@@ -25,7 +24,7 @@ requirements:
     - python ${{ python_min }}.*
     - pip
     - setuptools
-    - versioningit
+    - setuptools-scm
   run:
     - python >=${{ python_min }}
 
