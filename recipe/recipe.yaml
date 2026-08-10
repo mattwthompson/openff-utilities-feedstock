@@ -35,17 +35,17 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
-  - files:
-      recipe:
-        - test_package.py
+  - script:
+      - python test_package.py
     requirements:
       run:
         - python ${{ python_min }}.*
         - packaging
         - ambertools >=24
         - micromamba
-    script:
-      - python test_package.py
+    files:
+      recipe:
+        - test_package.py
 
 about:
   license: MIT
