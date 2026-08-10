@@ -42,6 +42,8 @@ tests:
       run:
         - python ${{ python_min }}.*
         - packaging
+        - ambertools >=24
+        - micromamba
     script:
       - python test_package.py
 
