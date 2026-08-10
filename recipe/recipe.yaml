@@ -33,7 +33,9 @@ tests:
       imports:
         - openff.utilities
       pip_check: false
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - files:
       recipe:
         - test_package.py
